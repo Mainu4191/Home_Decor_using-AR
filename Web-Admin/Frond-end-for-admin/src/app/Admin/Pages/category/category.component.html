@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Category</h1>
+    </div>
+
+    <div class="col-md-12 text-end">
+        <button class="btn btn-primary me-5" (click)="isShowAddCategoryForm = !isShowAddCategoryForm" #text
+            [innerText]="isShowAddCategoryForm ? 'Show Category List' : 'Add Category'">
+        </button>
+    </div>
+
+</div>
+
+<div class="row justify-content-center" *ngIf="isShowAddCategoryForm">
+    <div class="col-md-4">
+        <form (ngSubmit)="addCategory()" #categoryForm="ngForm">
+
+            <div class="mb-3">
+                <label for="categoryName" class="form-label">Category Name</label>
+                <input type="text" class="form-control" id="categoryName" aria-describedby="categoryNameHelp" required
+                    ngModel name="name">
+                <div id="categoryNameHelp" class="form-text">Enter Category Name</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="categoryDescription" class="form-label">Category Description</label>
+                <textarea class="form-control" id="categoryDescription" rows="3" required ngModel name="description"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+
+
+<div class="row" *ngIf="!isShowAddCategoryForm">
+    <div class="col-md-12 text-center">
+        <h1>Category List</h1>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Sr. No.</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Category Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{category.name}}</td>
+                    <td>{{category.description}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="editCategory(category)">Edit</button>
+                        <button class="btn btn-danger" (click)="deleteCategory(category)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

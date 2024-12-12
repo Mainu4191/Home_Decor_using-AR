@@ -1,0 +1,92 @@
+<div class="row justify-content-center mt-3">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class=" text-primary">
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Picture
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orderItems">
+                                <td>
+                                    {{order.name}}
+                                </td>
+                                <td>
+                                    <img [src]="imageUrl +order.folderName+'/'+ order.image" alt="Product Picture"
+                                        width="50" height="50">
+                                </td>
+                                <td>
+                                    {{order.quantity}}
+                                </td>
+                                <td>
+                                    {{order.price}}
+                                </td>
+                                <td>
+                                    {{order.quantity * order.price}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Total Amount: {{orders.total}}</h4>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Status: {{orders.status}}</h4>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row ">
+                    <div class=" col-md-12 justify-content-center text-center">
+                        <button class="btn btn-primary m-3"
+                            (click)="updateStatus(orders, 'Processing')">Processing</button>
+                        <button class="btn btn-success m-3"
+                            (click)="updateStatus(orders, 'Delivered')">Delivered</button>
+                        <button class="btn btn-danger m-3"
+                            (click)="updateStatus(orders, 'Cancelled')">Cancelled</button>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <p>
+                            <strong> Customer Name: </strong> {{orders.user_name}} <br>
+                            <strong> Delivery Address: </strong> {{orders.user_address}} <br>
+                            <strong> Mobile Number: </strong> {{orders.user_phone}} <br>
+                            <strong> Email: </strong> {{orders.user_email}} <br>
+
+                        </p>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>

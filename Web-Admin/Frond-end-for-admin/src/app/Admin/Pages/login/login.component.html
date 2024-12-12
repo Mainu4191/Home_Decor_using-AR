@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="row  justify-content-center align-content-center" style="height: 100vh;">
+        <div class="col-12 col-md-12 col-lg-4 col-sm-12">
+            <form class="border p-3" style="border-radius: 10px;" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+                <legend>Admin Login</legend>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"
+                        name="email" ngModel required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password" ngModel required>
+                </div>
+
+                <div class="from-group mt-2">
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+
+</div>

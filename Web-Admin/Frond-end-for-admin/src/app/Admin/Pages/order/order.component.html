@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"> Order List</h4>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class=" text-primary">
+                            <th>
+                                Order ID
+                            </th>
+                            <th>
+                                Customer Name
+                            </th>
+                            <th>
+                                Order Date
+                            </th>
+                            <th>
+                                Total Amount
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orders">
+                                <td>
+                                    {{order.order_id}}
+                                </td>
+                                <td>
+                                    {{order.user_name}}
+                                </td>
+                                <td>
+                                   
+
+                                    {{order.order_date | date: 'dd/MMM/yyyy'}}
+                                </td>
+                                <td>
+                                    {{order.total}}
+                                </td>
+                                <td>
+                                    {{order.status}}
+
+
+                                </td>
+                                <td>
+                    
+                                    <a [routerLink]="['/dashboard/order-detail', order.order_id]">
+                                        <button class="btn btn-primary">
+                                            <i class="fa fa-edit"></i>
+                                            View Order
+
+                                        </button>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

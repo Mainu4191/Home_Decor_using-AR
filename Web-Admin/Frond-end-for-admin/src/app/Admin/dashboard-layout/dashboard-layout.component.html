@@ -1,0 +1,55 @@
+<div class="layout-box">
+
+    <div class="header bg-primary">
+        <button class="btn btn-danger" (click)="logout()">LogOut</button>
+
+    </div>
+
+    <div class="sidebar bg-info">
+
+        <h3>Menu</h3>
+
+        <div class="side-menu">
+            <h6 routerLink="/dashboard/">
+                Dashboard
+            </h6>
+        </div>
+
+        <div class="side-menu">
+            <h6 routerLink="/dashboard/userslist">
+                User List
+            </h6>
+        </div>
+
+        <div class="side-menu">
+            <h6 routerLink="/dashboard/category">
+                Category
+            </h6>
+        </div>
+
+        <div class="side-menu">
+            <h6 routerLink="/dashboard/products">
+                Products
+            </h6>
+        </div>
+        <div class="side-menu">
+            <h6 routerLink="/dashboard/orders">
+                Orders
+            </h6>
+        </div>
+
+
+
+    </div>
+
+    <div class="container-fluid content bg-light">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="footer bg-black"> Footer </div>
+
+
+
+
+
+</div>
